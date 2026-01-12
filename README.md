@@ -21,4 +21,4 @@ This repository serves as a digital laboratory for mastering fundamental Web Dev
     * Refactored 3 separate functions into 1 dynamic function that accepts arguments.
 
 #### How to Run
-Simply open `index.html` in any browser.
+Simply open `Monastery_toggle.html` in any browser.
