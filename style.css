@@ -1,0 +1,28 @@
+body { /*didn't want to deal with .package and .box*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        div.package {
+            display: flex;
+            border: 5px outset gray;
+            border-radius: 25px;
+        }
+        div.box {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+        button.gray-button {
+            background-color: #808080;
+            color: #fff;
+        }
+        button.black-button {
+            background-color: #111;
+            color: #fff;
+        }

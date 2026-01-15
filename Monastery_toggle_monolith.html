@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monatery Toggle</title>
+    <style>
+        body { /*didn't want to deal with .package and .box*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        div.package {
+            display: flex;
+            border: 5px outset gray;
+            border-radius: 25px;
+        }
+        div.box {
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+        button.gray-button {
+            background-color: #808080;
+            color: #fff;
+        }
+        button.black-button {
+            background-color: #111;
+            color: #fff;
+        }
+    </style>
+</head>
+<body id="main">
+    <div class="package">
+        <div class="box">
+            <h2>Change the world to gray or black</h2>
+
+            <div class="buttons"> <!-- This div is for to keep the buttons on the same line-->
+            <button id="white-button" onclick="white_background_color()">Turn it White</button>
+            <button id="gray-button" class="gray-button" onclick="gray_background_color()">Turn it Gray</button>
+            <button id="black-button" class="black-button" onclick="black_background_color()">Turn it Black</button>
+            </div>
+
+            <div class="buttons"> <!-- This div is for to keep the buttons on the same line-->
+            <button id="white-button-alternative">Turn it White</button>
+            <button id="gray-button-alternative" class="gray-button">Turn it Gray</button>
+            <button id="black-button-alternative" class="black-button">Turn it Black</button>
+            </div>
+
+            <div class="buttons"> <!-- This div is for to keep the buttons on the same line-->
+            <button id="white-button-alternative2">Turn it White DRY</button>
+            <button id="gray-button-alternative2" class="gray-button">Turn it Gray DRY</button>
+            <button id="black-button-alternative2" class="black-button">Turn it Black DRY</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Dinasour way
+        function white_background_color() {
+            document.getElementById("main").style.backgroundColor="#fff";
+        }
+        function gray_background_color(){
+            document.getElementById("main").style.backgroundColor="#808080";
+        }
+        function black_background_color(){
+            document.getElementById("main").style.backgroundColor="#111";
+        }
+
+        
+        document.getElementById("white-button-alternative").addEventListener("click", white_background_color_alternative);
+        document.getElementById("gray-button-alternative").addEventListener("click", gray_background_color_alternative);
+        document.getElementById("black-button-alternative").addEventListener("click", black_background_color_alternative);
+        
+        function white_background_color_alternative(){
+            document.querySelector("body").style.backgroundColor="#fff";
+        }
+        function gray_background_color_alternative(){
+            document.querySelector("body").style.backgroundColor="#808080";
+        }
+        function black_background_color_alternative(){
+            document.querySelector("body").style.backgroundColor="#111";
+        }
+
+        // REFACTOR: Changed it to Arrow Function to avoid repeating code.
+        // DRY Solution
+        const whiteBtn = document.getElementById("white-button-alternative2");
+        const grayBtn = document.getElementById("gray-button-alternative2");
+        const blackBtn = document.getElementById("black-button-alternative2");
+
+        // Universal Function
+        function changeColor(colorName) {
+            document.body.style.backgroundColor= colorName;
+        }
+
+        //Listeners
+        whiteBtn.addEventListener("click", () => changeColor("#fff"));
+        grayBtn.addEventListener("click", () => changeColor("#808080"));
+        blackBtn.addEventListener("click", () => changeColor("#111"));
+    </script>
+</body>
+</html>
